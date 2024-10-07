@@ -1,6 +1,5 @@
 import axios from "axios";
 import JSZip from "jszip";
-import { PassThrough } from "stream";
 
 class FigmaService {
 
@@ -27,7 +26,6 @@ class FigmaService {
         }
 
             const zip = new JSZip();
-            const zipStream = new PassThrough();
             const promises = Object.entries<string>(data.meta.images).map(([key, imageUrl]) => {
                 return axios.get(imageUrl, { responseType: "arraybuffer" })
                 .then(({data}) => {

@@ -1,7 +1,7 @@
 import { join } from 'path';
 import AutoLoad, {AutoloadPluginOptions} from '@fastify/autoload';
 import { FastifyPluginAsync, FastifyServerOptions } from 'fastify';
-import {TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
+// import {TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
 export interface AppOptions extends FastifyServerOptions, Partial<AutoloadPluginOptions> {
 
@@ -15,7 +15,7 @@ const app: FastifyPluginAsync<AppOptions> = async (
     opts
 ): Promise<void> => {
 
-  fastify = fastify.withTypeProvider<TypeBoxTypeProvider>();
+  // fastify = fastify.withTypeProvider<TypeBoxTypeProvider>();
 
   fastify.register(AutoLoad, {
     dir: join(__dirname, 'plugins'),
